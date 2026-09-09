@@ -475,7 +475,7 @@
       gap: 15px;
     }
 
-    /* Warning Modal */
+    /* Warning Modal with Date of Birth */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -529,7 +529,31 @@
       color: var(--text-muted);
       font-size: 0.88rem;
       line-height: 1.4;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
+    }
+
+    .dob-input-container {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .dob-input-container label {
+      display: block;
+      color: var(--secondary-neon);
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .dob-input-container input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      background: #090a0f;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+      text-align: center;
     }
 
     .warning-actions {
@@ -746,16 +770,22 @@
     </div>
   </div>
 
-  <!-- 18+ Warning Modal Popup -->
+  <!-- 18+ Age Verification Date of Birth Modal Popup -->
   <div class="modal-overlay" id="nsfwWarningModal">
     <div class="warning-card">
       <button class="close-modal-btn" onclick="cancelNsfwAccess()"><i class="fa-solid fa-xmark"></i></button>
       <i class="fa-solid fa-triangle-exclamation warning-icon"></i>
       <h3>Age Verification</h3>
-      <p>This section contains Mature / NSFW Content. You must be at least 18 years old or legal age in your jurisdiction to view this gallery.</p>
+      <p>Please enter your date of birth to access the mature content gallery.</p>
+      
+      <div class="dob-input-container">
+        <label for="userDob">Date of Birth:</label>
+        <input type="date" id="userDob">
+      </div>
+
       <div class="warning-actions">
         <button class="btn btn-cancel" onclick="cancelNsfwAccess()">Go Back</button>
-        <button class="btn btn-confirm" onclick="confirmNsfwAccess()">I am 18 or Older</button>
+        <button class="btn btn-confirm" onclick="verifyAgeAndAccess()">Verify Age</button>
       </div>
     </div>
   </div>
@@ -867,10 +897,32 @@
       }
     }
 
-    function confirmNsfwAccess() {
-      isNsfwVerified = true;
-      document.getElementById('nsfwWarningModal').style.display = 'none';
-      switchSection('nsfw');
+    function verifyAgeAndAccess() {
+      const dobInput = document.getElementById('userDob').value;
+      if (!dobInput) {
+        alert("Please select your date of birth.");
+        return;
+      }
+
+      const birthDate = new Date(dobInput);
+      const today = new Date();
+      
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDifference = today.getMonth() - birthDate.getMonth();
+      
+      if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      if (age < 18) {
+        alert("Your age is under 18, so you cannot view the nsfw gallery.");
+        document.getElementById('nsfwWarningModal').style.display = 'none';
+        switchSection('sfw');
+      } else {
+        isNsfwVerified = true;
+        document.getElementById('nsfwWarningModal').style.display = 'none';
+        switchSection('nsfw');
+      }
     }
 
     function cancelNsfwAccess() {

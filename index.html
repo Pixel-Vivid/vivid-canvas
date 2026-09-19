@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Vivid Canvas | Cyberpunk Anime Art Station</title>
+  <title>Pixel Vivid Solution | Digital Arts & Web Development Studio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -213,7 +213,6 @@
       min-width: 140px;
     }
 
-    /* Grid Layout Responsive Optimization */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -335,6 +334,138 @@
       cursor: pointer;
     }
 
+    /* Web Development Project Card Style */
+    .portfolio-projects {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .web-project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--secondary-neon);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .web-project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    }
+
+    .web-project-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #181c2b;
+    }
+
+    .web-project-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .web-project-body h4 {
+      color: var(--text-main);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .web-project-body p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+    }
+
+    .tech-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .tag {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid var(--primary-neon);
+      color: var(--text-main);
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+
+    /* Review Board */
+    .review-board {
+      margin-top: 35px;
+      background: var(--card-bg);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .review-board h3 {
+      color: var(--secondary-neon);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .review-input-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .review-input-group input {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      background: #090a0f;
+      color: white;
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .review-item {
+      background: #090a0f;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+
+    .review-user {
+      color: var(--secondary-neon);
+      font-weight: 600;
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: var(--text-main);
+    }
+
     .about-card {
       background: var(--card-bg);
       padding: 25px;
@@ -359,7 +490,7 @@
       color: var(--secondary-neon);
     }
 
-    /* Fullscreen Mobile Lightbox Gallery Modal */
+    /* Lightbox Modal */
     .lightbox-overlay {
       position: fixed;
       top: 0;
@@ -475,7 +606,7 @@
       gap: 15px;
     }
 
-    /* Warning Modal with Date of Birth */
+    /* Age Verification Modal */
     .modal-overlay {
       position: fixed;
       top: 0;
@@ -574,7 +705,7 @@
       color: var(--text-muted);
     }
 
-    /* Footer Rating Bar Styles */
+    /* Footer Rating Bar */
     .footer-rating-container {
       margin-bottom: 20px;
       padding-bottom: 15px;
@@ -637,9 +768,8 @@
       font-size: 0.8rem;
     }
 
-    /* Mobile Responsive View Tweaks */
     @media (max-width: 650px) {
-      h1 { font-size: 1.7rem; }
+      h1 { font-size: 1.6rem; }
       header { padding-top: 60px; }
       
       .gallery-grid {
@@ -675,11 +805,6 @@
       .top-search-container input {
         width: 75px;
       }
-      .lightbox-nav {
-        width: 36px;
-        height: 36px;
-        font-size: 1rem;
-      }
     }
   </style>
 </head>
@@ -697,13 +822,15 @@
       <div class="brand-icon">
         <i class="fa-solid fa-paint-brush"></i>
       </div>
-      <h1>Vivid Canvas</h1>
+      <h1>Pixel Vivid Solution</h1>
     </div>
-    <div class="subtitle">Digital Anime Art Station</div>
+    <div class="subtitle">Creative Digital Arts & Web Development Agency</div>
 
     <div class="nav-buttons" id="navMenu">
-      <button class="btn active" id="btn-sfw" onclick="switchSection('sfw')">SFW Gallery</button>
-      <button class="btn" id="btn-nsfw" onclick="handleNsfwClick()">NSFW Gallery</button>
+      <button class="btn active" id="btn-sfw" onclick="switchSection('sfw')">SFW Art</button>
+      <button class="btn" id="btn-gaming" onclick="switchSection('gaming')">Gaming & Logos</button>
+      <button class="btn" id="btn-webdev" onclick="switchSection('webdev')">Web Development</button>
+      <button class="btn" id="btn-nsfw" onclick="handleNsfwClick()">NSFW Art</button>
       <button class="btn" id="btn-about" onclick="switchSection('about')">About Us</button>
     </div>
   </header>
@@ -714,19 +841,36 @@
     <div class="uploader-card" id="ownerPanel">
       <h3><i class="fa-solid fa-unlock"></i> Owner Control Panel (Live Add & Delete)</h3>
       <div class="uploader-form">
-        <input type="text" id="artTitle" placeholder="Art Title">
-        <input type="text" id="artUrl" placeholder="Direct Image Link (https://...)">
+        <input type="text" id="artTitle" placeholder="Project Title / Website Name">
+        <input type="text" id="artUrl" placeholder="Image URL / Website Screenshot">
+        <input type="text" id="webServices" placeholder="Services/Features (e.g. Portfolio, E-commerce, Responsive)">
+        <input type="text" id="webDemoUrl" placeholder="Live Demo Link (Optional)">
         <select id="artCategory">
           <option value="sfw">SFW Gallery</option>
+          <option value="gaming">Gaming & Logos</option>
+          <option value="webdev">Web Development Project</option>
           <option value="nsfw">NSFW Gallery</option>
         </select>
-        <button class="btn" id="postBtn" onclick="addNewArt()">Post Art</button>
+        <button class="btn" id="postBtn" onclick="addNewArt()">Post Work</button>
       </div>
     </div>
 
     <!-- SFW Gallery Section -->
     <div id="sfw" class="section active">
       <div class="gallery-grid" id="sfwGrid"></div>
+    </div>
+
+    <!-- Gaming & Logos Gallery Section -->
+    <div id="gaming" class="section">
+      <div class="gallery-grid" id="gamingGrid"></div>
+    </div>
+
+    <!-- Web Development Services & Concepts Section -->
+    <div id="webdev" class="section">
+      <h2 style="color: var(--secondary-neon); text-align: center; margin-bottom: 10px;">Web Design & Development Projects</h2>
+      <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 25px;">Custom websites, landing pages, and interactive web apps engineered for artists, streamers, and businesses.</p>
+      
+      <div class="portfolio-projects" id="webdevGrid"></div>
     </div>
 
     <!-- NSFW Gallery Section -->
@@ -737,18 +881,31 @@
     <!-- About Us Section -->
     <div id="about" class="section">
       <div class="about-card">
-        <h2>About Vivid Canvas</h2>
-        <p style="margin-top: 10px; color: var(--text-muted);">Exploring digital anime art, original character concepts, and creative illustrations since 2019.</p>
+        <h2>About Pixel Vivid Solution</h2>
+        <p style="margin-top: 10px; color: var(--text-muted);">Pixel Vivid Solution is a creative digital agency specializing in digital illustrations, gaming assets, mascot logos, and high-quality web development.</p>
 
         <div class="commission-box">
-          <p><strong>Commission Info:</strong> Anyone who wants to commission custom artwork can message me on Instagram or Discord. I can draw anything you have in mind, including NSFW artwork.</p>
+          <p><strong>Work with Us:</strong> Need custom digital art, gaming logos, or a custom website built? Message us on Instagram, Discord, or WhatsApp to get started!</p>
+        </div>
+      </div>
+
+      <!-- Rating Feedback & Review Board -->
+      <div class="review-board">
+        <h3><i class="fa-solid fa-comments"></i> Visitor Ratings & Feedback</h3>
+        <div class="review-input-group">
+          <input type="text" id="reviewerName" placeholder="Your Name / Handle">
+          <input type="text" id="reviewerComment" placeholder="Write a short review or feedback...">
+          <button class="btn" onclick="submitReview()">Submit Review</button>
+        </div>
+        <div class="reviews-list" id="reviewsList">
+          <div style="color: var(--text-muted); text-align: center;">Loading feedback...</div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!-- Fullscreen Mobile Lightbox Gallery Viewer -->
+  <!-- Fullscreen Lightbox Viewer -->
   <div class="lightbox-overlay" id="lightbox">
     <div class="lightbox-header">
       <button class="lightbox-back-btn" onclick="closeLightbox()"><i class="fa-solid fa-arrow-left"></i> Back</button>
@@ -770,7 +927,7 @@
     </div>
   </div>
 
-  <!-- 18+ Age Verification Date of Birth Modal Popup -->
+  <!-- Age Verification Modal -->
   <div class="modal-overlay" id="nsfwWarningModal">
     <div class="warning-card">
       <button class="close-modal-btn" onclick="cancelNsfwAccess()"><i class="fa-solid fa-xmark"></i></button>
@@ -809,7 +966,7 @@
       <a href="mailto:pixelvividsolution@gmail.com" title="Email Us"><i class="fa-regular fa-envelope"></i></a>
     </div>
     <div class="copyright-text">
-      (c) 2020 Vivid Canvas-Art Station. All rights are reserved
+      &copy; 2026 Pixel Vivid Solution. All rights reserved.
     </div>
   </footer>
 
@@ -831,7 +988,6 @@
     let isOwnerUnlocked = false;
     let isNsfwVerified = false;
 
-    // Gallery Array & Lightbox Index State
     let currentGalleryPosts = [];
     let currentActiveIndex = 0;
 
@@ -855,6 +1011,7 @@
     document.addEventListener("DOMContentLoaded", function () {
       loadGlobalArt();
       listenSiteRating();
+      listenReviews();
       setupSwipeGestures();
     });
 
@@ -875,6 +1032,7 @@
         document.getElementById('ownerPanel').style.display = 'block';
         document.getElementById('searchInput').value = '';
         document.querySelectorAll('.delete-btn').forEach(btn => btn.style.display = 'inline-block');
+        loadGlobalArt();
         alert("Welcome Owner! Upload & Delete Controls Unlocked.");
         return;
       }
@@ -883,9 +1041,9 @@
 
     function filterArtworks() {
       const query = document.getElementById('searchInput').value.toLowerCase().trim();
-      document.querySelectorAll('.art-card').forEach(card => {
+      document.querySelectorAll('.art-card, .web-project-card').forEach(card => {
         const title = card.querySelector('h4') ? card.querySelector('h4').innerText.toLowerCase() : '';
-        card.style.display = title.includes(query) ? 'block' : 'none';
+        card.style.display = title.includes(query) ? 'flex' : 'none';
       });
     }
 
@@ -906,7 +1064,6 @@
 
       const birthDate = new Date(dobInput);
       const today = new Date();
-      
       let age = today.getFullYear() - birthDate.getFullYear();
       const monthDifference = today.getMonth() - birthDate.getMonth();
       
@@ -915,7 +1072,7 @@
       }
 
       if (age < 18) {
-        alert("Your age is under 18, so you cannot view the nsfw gallery.");
+        alert("Your age is under 18, so you cannot view the NSFW gallery.");
         document.getElementById('nsfwWarningModal').style.display = 'none';
         switchSection('sfw');
       } else {
@@ -950,10 +1107,12 @@
       const title = document.getElementById('artTitle').value.trim();
       const url = document.getElementById('artUrl').value.trim();
       const category = document.getElementById('artCategory').value;
+      const services = document.getElementById('webServices').value.trim();
+      const demoUrl = document.getElementById('webDemoUrl').value.trim();
       const postBtn = document.getElementById('postBtn');
 
       if(!title || !url) {
-        alert("Please enter title and direct web image URL");
+        alert("Please enter title and image URL");
         return;
       }
 
@@ -965,26 +1124,30 @@
         title: title,
         url: url,
         category: category,
+        services: services || 'Web Design, Responsive UI',
+        demoUrl: demoUrl || '',
         timestamp: Date.now()
       })
       .then(() => {
         postBtn.disabled = false;
-        postBtn.innerText = "Post Art";
+        postBtn.innerText = "Post Work";
         document.getElementById('artTitle').value = '';
         document.getElementById('artUrl').value = '';
-        alert("SUCCESS: Post Firebase Par Saved!");
+        document.getElementById('webServices').value = '';
+        document.getElementById('webDemoUrl').value = '';
+        alert("SUCCESS: Saved to Firebase!");
       })
       .catch((error) => {
         postBtn.disabled = false;
-        postBtn.innerText = "Post Art";
+        postBtn.innerText = "Post Work";
         alert("FIREBASE ERROR: " + error.message);
       });
     }
 
     function deleteArt(postId) {
-      if (confirm("Are you sure you want to delete this artwork?")) {
+      if (confirm("Are you sure you want to delete this post?")) {
         db.ref('posts/' + postId).remove().then(() => {
-          alert("Artwork deleted successfully!");
+          alert("Post deleted successfully!");
         });
       }
     }
@@ -1010,10 +1173,14 @@
     function loadGlobalArt() {
       db.ref('posts').on('value', function(snapshot) {
         const sfwContainer = document.getElementById('sfwGrid');
+        const gamingContainer = document.getElementById('gamingGrid');
         const nsfwContainer = document.getElementById('nsfwGrid');
+        const webdevContainer = document.getElementById('webdevGrid');
         
         if(sfwContainer) sfwContainer.innerHTML = '';
+        if(gamingContainer) gamingContainer.innerHTML = '';
         if(nsfwContainer) nsfwContainer.innerHTML = '';
+        if(webdevContainer) webdevContainer.innerHTML = '';
         
         currentGalleryPosts = [];
         const data = snapshot.val();
@@ -1030,9 +1197,38 @@
     }
 
     function renderCard(postId, art) {
-      if (!art || !art.url) return;
+      if (!art) return;
 
       const deleteDisplayStyle = isOwnerUnlocked ? 'inline-block' : 'none';
+      let postCategory = art.category || 'sfw';
+
+      /* Render Web Development Cards with Preview Image */
+      if (postCategory === 'webdev') {
+        const servicesList = art.services ? art.services.split(',') : ['Custom Web App', 'Responsive'];
+        const tagsHtml = servicesList.map(s => `<span class="tag">${s.trim()}</span>`).join('');
+        const demoBtn = art.demoUrl ? `<a href="${art.demoUrl}" target="_blank" class="btn" style="padding: 6px 14px; font-size: 0.8rem; text-decoration:none;">Live Link</a>` : '';
+
+        const projectHtml = `
+          <div class="web-project-card" id="card-${postId}">
+            <img src="${art.url}" class="web-project-img" alt="${art.title}" onerror="handleImageError(this)">
+            <div class="web-project-body">
+              <div>
+                <h4>${art.title || 'Web Project'}</h4>
+                <div class="tech-tags">${tagsHtml}</div>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.08); padding-top:10px;">
+                ${demoBtn}
+                <button class="delete-btn" style="display: ${deleteDisplayStyle};" onclick="deleteArt('${postId}')" title="Delete Post"><i class="fa-solid fa-trash"></i></button>
+              </div>
+            </div>
+          </div>
+        `;
+        const container = document.getElementById('webdevGrid');
+        if (container) container.insertAdjacentHTML('beforeend', projectHtml);
+        return;
+      }
+
+      /* Render Art Cards */
       const baseLikes = generateBaseLikes(postId);
       const displayLikes = formatNumber(baseLikes);
 
@@ -1043,8 +1239,6 @@
       const count = art.ratingCount || 0;
       const sum = art.ratingSum || 0;
       const avgRating = count > 0 ? (sum / count).toFixed(1) : "4.9";
-
-      const postCategory = (art.category === 'nsfw') ? 'nsfw' : 'sfw';
 
       const cardHtml = `
         <div class="art-card" id="card-${postId}">
@@ -1078,7 +1272,10 @@
         </div>
       `;
 
-      const gridId = postCategory === 'sfw' ? 'sfwGrid' : 'nsfwGrid';
+      let gridId = 'sfwGrid';
+      if (postCategory === 'gaming') gridId = 'gamingGrid';
+      else if (postCategory === 'nsfw') gridId = 'nsfwGrid';
+
       const container = document.getElementById(gridId);
       if (container) container.insertAdjacentHTML('beforeend', cardHtml);
     }
@@ -1100,11 +1297,10 @@
       countSpan.innerText = formatNumber(baseLikes);
     }
 
-    /* Lightbox Gallery Controls */
     function openLightbox(postId) {
       const activeSection = document.querySelector('.section.active').id;
       const filteredPosts = currentGalleryPosts.filter(p => {
-        const cat = p.category === 'nsfw' ? 'nsfw' : 'sfw';
+        const cat = p.category || 'sfw';
         return cat === activeSection;
       });
 
@@ -1163,7 +1359,7 @@
     function navigateLightbox(direction) {
       const activeSection = document.querySelector('.section.active').id;
       const filteredPosts = currentGalleryPosts.filter(p => {
-        const cat = p.category === 'nsfw' ? 'nsfw' : 'sfw';
+        const cat = p.category || 'sfw';
         return cat === activeSection;
       });
 
@@ -1178,7 +1374,6 @@
       updateLightboxContent(currentArt);
     }
 
-    /* Swipe Left / Right on Lightbox Image for Mobile */
     function setupSwipeGestures() {
       let touchStartX = 0;
       let touchEndX = 0;
@@ -1194,12 +1389,11 @@
       }, false);
 
       function handleSwipe() {
-        if (touchEndX < touchStartX - 40) navigateLightbox(1);  // Swipe Left -> Next Image
-        if (touchEndX > touchStartX + 40) navigateLightbox(-1); // Swipe Right -> Previous Image
+        if (touchEndX < touchStartX - 40) navigateLightbox(1);
+        if (touchEndX > touchStartX + 40) navigateLightbox(-1);
       }
     }
 
-    /* Site Rating Functions */
     function rateSite(stars) {
       db.ref('site_ratings').transaction((ratings) => {
         if (!ratings) ratings = { sum: 3.5, count: 1 };
@@ -1237,6 +1431,55 @@
           container.innerHTML += `<i class="fa-regular fa-star" onclick="rateSite(${i})"></i>`;
         }
       }
+    }
+
+    /* Review & Feedback Logic */
+    function submitReview() {
+      const name = document.getElementById('reviewerName').value.trim() || 'Anonymous User';
+      const comment = document.getElementById('reviewerComment').value.trim();
+
+      if(!comment) {
+        alert("Please enter a short review/feedback.");
+        return;
+      }
+
+      db.ref('reviews').push({
+        name: name,
+        comment: comment,
+        timestamp: Date.now()
+      }).then(() => {
+        document.getElementById('reviewerName').value = '';
+        document.getElementById('reviewerComment').value = '';
+        alert("Feedback submitted successfully!");
+      });
+    }
+
+    function listenReviews() {
+      db.ref('reviews').on('value', (snapshot) => {
+        const container = document.getElementById('reviewsList');
+        if(!container) return;
+        container.innerHTML = '';
+        const data = snapshot.val();
+        
+        if(data) {
+          Object.keys(data).reverse().forEach(key => {
+            const rev = data[key];
+            const dateStr = new Date(rev.timestamp || Date.now()).toLocaleDateString();
+            const revHtml = `
+              <div class="review-item">
+                <div class="review-header">
+                  <span class="review-user"><i class="fa-regular fa-user"></i> ${rev.name}</span>
+                  <span style="color: var(--text-muted); font-size: 0.75rem;">${dateStr}</span>
+                </div>
+                <div class="review-text">${rev.comment}</div>
+              </div>
+            `;
+            container.insertAdjacentHTML('beforeend', revHtml);
+          });
+        } else {
+          container.innerHTML = '<div style="color: var(--text-muted); text-align: center;">No reviews yet. Be the first to review!</div>';
+        }
+      });
     }
   </script>
 </body>
